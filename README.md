@@ -22,6 +22,7 @@ Takes the following parameters:
 * __verbose__ - (optional) if set, calls the API with verbose=true
 
 # heroku setup
+(https://blog.hartleybrody.com/fb-messenger-bot/)
 ## login heroku
 heroku login
 ## active virtual env
