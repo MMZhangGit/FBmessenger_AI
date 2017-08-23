@@ -1,2 +1,3 @@
 # FBmessenger_AI
-code for FB messenger chatBot
+Python code for FB messenger chatBot
+Author: Min Zhang
