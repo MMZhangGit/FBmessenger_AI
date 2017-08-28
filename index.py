@@ -3,9 +3,10 @@ from flask import Flask, request
 from utils import wit_response
 from pymessenger.bot import Bot
 
+# create the application
 app = Flask(__name__)
 
-ACCESS_TOKEN = "EAAbRzQm2QUEBAMAfmQTaIZAQ61rSP4eKKTfpv0We5P8DgA3QHdz2F0mJgLtCffdQ8gmGDk2iacryRwUVpjJfewZCdnWkgPTj0wjrHfNHpQ2MtGuSTuMLGZBpzRSM4URZB21C2AYCyMslxCbNupKsHRdVdfZB0222qEE0sUSBAvwZDZD"
+ACCESS_TOKEN = "EAAbRzQm2QUEBAD6Cdb3uF5Lv2vKpKCKTIF6jwG8N7WX4eEOSk0GHcCpG7rFysFiL2LgmtD3v8MypZAXIF2ulDNxG1a1yRbZAZB1X6xMsfAuj58I5WU9tiWH283vZAv4GRaT7lRTClLPMHx1k4sr7Dy4s9QuGXLzTKLIroliQEwZDZD"
 VERIFY_TOKEN = "hello"
 bot = Bot(ACCESS_TOKEN)
 
@@ -68,72 +69,3 @@ def hello():
 if __name__ == "__main__":
     app.run(port=5002, debug=True)
 
-# import os, sys
-# from flask import Flask, request
-# from pymessenger import Bot
-#
-# app = Flask(__name__)
-#
-# PAGE_ACCESS_TOKEN = "EAAbRzQm2QUEBAJ5y36eQGSgS4HOqz9MMw8KD921qwIZBRODBgOZA7KMzGtFMeIdsR8Ehq0vRpT20MtoslrKe0SpPwc5snSmUDGsoujqdGB1I9YDYUCDMdtlR96HZCo7KkK8o1EAskmK97bLPMzUZBxbsflnjbpwf1Pb3vC7b7gZDZD"
-#
-# bot = Bot(PAGE_ACCESS_TOKEN)
-#
-#
-# @app.route('/', methods=['GET'])
-# def verify():
-#     # Webhook verification
-#     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-#         if not request.args.get("hub.verify_token") == "hello":
-#             return "Verification token mismatch", 403
-#         return request.args["hub.challenge"], 200
-#     return "Hello world", 200
-#
-#
-# @app.route('/', methods=['POST'])
-# def webhook():
-#     data = request.get_json()
-#     log(data)
-#
-#     if data['object'] == 'page':
-#         for entry in data['entry']:
-#             for messaging_event in entry['messaging']:
-#
-#                 # IDs
-#                 sender_id = messaging_event['sender']['id']
-#                 recipient_id = messaging_event['recipient']['id']
-#
-#                 if messaging_event.get('message'):
-#                     # Extracting text message
-#                     if 'text' in messaging_event['message']:
-#                         messaging_text = messaging_event['message']['text']
-#                     else:
-#                         messaging_text = 'no text'
-#                     # Echo
-#                     response = messaging_text
-#                     bot.send_text_message(sender_id, response)
-#                     # response = 'message for testing'
-#                     # bot.send_text_message(sender_id, response)
-#                 # response = 'message for testing'
-#                 # bot.send_generic_message(sender_id, response)
-#     return "ok", 200
-#
-#
-# def log(message):
-#     print(message)
-#     sys.stdout.flush()
-#
-#
-# if __name__ == "__main__":
-#     app.run(debug=True, port=5002)
-#
-#     # from flask import Flask, request
-#     # # from utils import wit_response
-#     #     # get_news_elements
-#     # # from pymessenger import Bot
-#     #
-#     # app = Flask(__name__)
-#     #
-#     # # test code
-#     # @app.route('/')
-#     # def index():
-#     # 	return '<h1>Deployed to Heroku!!</h1>'
