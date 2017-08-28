@@ -5,15 +5,17 @@ from pymessenger.bot import Bot
 
 # create the application
 app = Flask(__name__)
-
+# Facebook Page Access Token
 ACCESS_TOKEN = "EAAbRzQm2QUEBAD6Cdb3uF5Lv2vKpKCKTIF6jwG8N7WX4eEOSk0GHcCpG7rFysFiL2LgmtD3v8MypZAXIF2ulDNxG1a1yRbZAZB1X6xMsfAuj58I5WU9tiWH283vZAv4GRaT7lRTClLPMHx1k4sr7Dy4s9QuGXLzTKLIroliQEwZDZD"
-VERIFY_TOKEN = "hello"
+VERIFY_TOKEN = "hello" # verify token for webhook
 bot = Bot(ACCESS_TOKEN)
-
 
 @app.route("/", methods=['GET', 'POST'])
 def hello():
     if request.method == 'GET':
+        # At your webhook URL, add code for verification.
+        # Your code should look for the Verify Token and respond with the challenge sent in the verification request.
+        # Click Verify and Save in the New Page Subscription to call your webhook with a GET request.
         if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
             if not request.args.get("hub.verify_token") == VERIFY_TOKEN:
                 return "Verification token mismatch", 403
@@ -58,9 +60,6 @@ def hello():
                         else:
                             message = 'I am sorry, I could not understand what you are asking.'
                             bot.send_text_message(recipient_id, message)
-                    if x['message'].get('attachments'):
-                        for att in x['message'].get('attachments'):
-                            bot.send_attachment_url(recipient_id, att['type'], att['payload']['url'])
                 else:
                     pass
         return "Success"
