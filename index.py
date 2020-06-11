@@ -35,15 +35,11 @@ def hello():
                         if categories.get('confidence') and categories['confidence'] > 0.75:
                             rp_message = ''
                             if categories['intent_v'] == 'major':
-                                rp_message = "My major is Electrical & Computer Engineering"
+                                rp_message = "My major is Computer Science"
                             elif categories['intent_v'] == 'name':
                                 rp_message = "My name is Min"
                             elif categories['intent_v'] == 'college':
-                                rp_message = "I graduated from Old Dominion University"
-                            elif categories['intent_v'] == 'place_from':
-                                rp_message = "I'm from China"
-                            elif categories['intent_v'] == 'place_growup':
-                                rp_message = "I grew up in a small town in China"
+                                rp_message = "I graduated from ######## University"
                             elif categories['intent_v'] == 'fav_class':
                                 rp_message = "My favorite classes include Machine Learning, Algorithm, and Statistics."
                             elif categories['intent_v'] == 'greeting':
@@ -52,8 +48,6 @@ def hello():
                                 rp_message = "If I do have to pick a favorite one, it would either be C/C++, python, or C# depending on the kind of project, as I have used these the most. But I won't hesitate to use other languages if those will do a better job. I like C++, because it is fast, precise, and reasonably close to machine language as far as high level languages go. I also like Python because it is very easy to use."
                             elif categories['intent_v'] == 'best_at_program_lan':
                                 rp_message = "I am good at more than one language. If I do have to pick one, it would either be C/C++, python, or C# depending on the kind of project, as I have used these the most."
-                            elif categories['intent_v'] == 'time_learn_program':
-                                rp_message = "I started to learn programming in my first year of undergrad, that was 10 years ago."
                             else:
                                 rp_message = 'I am sorry, I could not understand what you are asking.'
                             bot.send_text_message(recipient_id, rp_message)
