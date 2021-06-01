@@ -12,7 +12,7 @@ pymessenger==0.0.7.0
 requests==2.18.4
 requests-toolbelt==0.8.0
 six==1.10.0
-urllib3==1.22
+urllib3==1.26.5
 wcwidth==0.1.7
 Werkzeug==0.12.2
 wit==4.3.0
